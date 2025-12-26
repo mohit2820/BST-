@@ -1,0 +1,18 @@
+Search a node in BST 
+Link : https://www.geeksforgeeks.org/problems/search-a-node-in-bst/1?page=1&difficulty%5B%5D=-1&category%5B%5D=Binary%2520Search%2520Tree&sortBy=submissions
+
+class Solution {
+    public boolean search(Node root, int key) {
+        // Agar root hi null hai matlab tree empty hai → key nahi milega
+        if(root == null) return false;
+        
+        // Agar current node ka data key ke equal hai → key mil gaya
+        if(root.data == key) return true;
+        
+        // Agar key chhota hai current node ke data se → left subtree me search karo
+        if(key < root.data) return search(root.left, key);
+        
+        // Agar key bada hai current node ke data se → right subtree me search karo
+        return search(root.right, key);
+    }
+}
